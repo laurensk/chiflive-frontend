@@ -1,8 +1,32 @@
+@font-face {
+  font-family: "Spartan-Regular";
+  src: url("assets/fonts/Spartan/Spartan-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Spartan-Bold";
+  src: url("assets/fonts/Spartan/Spartan-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Spartan-ExtraBold";
+  src: url("assets/fonts/Spartan/Spartan-ExtraBold.ttf");
+}
+
+html {
+  color: white;
+  font-family: "Spartan-Regular";
+}
+
+h1 {
+  font-family: "Spartan-ExtraBold";
+}
+
 body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  background-image: url("assets/cl_background.png");
+  background-image: url("assets/images/cl_background.png");
   background-color: #2a2a2a;
 }
