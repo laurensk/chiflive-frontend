@@ -21,4 +21,12 @@ export class StorageUtils {
     const loginData = StorageUtils.getLoginData();
     return loginData.username.length >= 1 || loginData.password.length >= 1;
   }
+
+  public static saveAuthorName(author: string) {
+    localStorage.setItem("CL_API_AUTHOR", author);
+  }
+
+  public static getAuthorName() {
+    return localStorage.getItem("CL_API_AUTHOR") || "";
+  }
 }

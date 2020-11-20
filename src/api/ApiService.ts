@@ -33,9 +33,18 @@ export class ApiService {
   }
 
   static async postMessage(author: string, body: string, callback: Function) {
-    ApiRequest.post("/messages", {}, ApiSuccess, false, false, (success: ApiSuccess, error: ApiService) => {
-      callback(success, error);
-    });
+    console.log("here");
+    ApiRequest.post(
+      "/messages",
+      { author: author, body: body },
+      ApiSuccess,
+      false,
+      false,
+      (success: ApiSuccess, error: ApiService) => {
+        console.log(error);
+        callback(success, error);
+      }
+    );
   }
 
   // Properties
