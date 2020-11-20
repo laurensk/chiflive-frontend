@@ -7,16 +7,23 @@ import { ApiSuccess } from "./ApiSuccess.model";
 
 export class ApiService {
   // Messages
-  static async getAllMessages(messageId: number, callback: Function) {
-    ApiRequest.get("/messages", {}, Message, true, true, (messages: Message[], error: ApiService) => {
+  static async getAllMessages(callback: Function) {
+    ApiRequest.post("/messages/get", {}, Message, true, true, (messages: Message[], error: ApiService) => {
       callback(messages, error);
     });
   }
 
   static async deleteMessage(messageId: number, callback: Function) {
-    ApiRequest.delete("/messages", { messageId: messageId }, true, (success: ApiSuccess, error: ApiService) => {
-      callback(success, error);
-    });
+    ApiRequest.post(
+      "/messages/delete",
+      { messageId: messageId },
+      ApiSuccess,
+      false,
+      true,
+      (success: ApiSuccess, error: ApiService) => {
+        callback(success, error);
+      }
+    );
   }
 
   static async toggleReadStatus(messageId: number, callback: Function) {
@@ -25,7 +32,7 @@ export class ApiService {
       { messageId: messageId },
       ApiSuccess,
       false,
-      false,
+      true,
       (success: ApiSuccess, error: ApiService) => {
         callback(success, error);
       }
@@ -33,7 +40,6 @@ export class ApiService {
   }
 
   static async postMessage(author: string, body: string, callback: Function) {
-    console.log("here");
     ApiRequest.post(
       "/messages",
       { author: author, body: body },
@@ -49,7 +55,7 @@ export class ApiService {
 
   // Properties
   static async getLiveEvent(callback: Function) {
-    ApiRequest.get(
+    ApiRequest.post(
       "/properties/isLiveEvent",
       {},
       LiveEvent,
@@ -76,9 +82,16 @@ export class ApiService {
 
   // User
   static async login(username: string, password: string, callback: Function) {
-    ApiRequest.get("/user", {}, User, false, true, (user: User, error: ApiService) => {
-      StorageUtils.login(username, password);
-      callback(user, error);
-    });
+    ApiRequest.post(
+      "/user",
+      { username: username, password: password },
+      User,
+      false,
+      false,
+      (user: User, error: ApiService) => {
+        if (!error) StorageUtils.login(username, password, user.name);
+        callback(user, error);
+      }
+    );
   }
 }

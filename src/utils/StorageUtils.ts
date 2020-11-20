@@ -1,12 +1,14 @@
 export class StorageUtils {
-  public static login(username: string, password: string) {
+  public static login(username: string, password: string, name: string) {
     localStorage.setItem("CL_API_USERNAME", username);
     localStorage.setItem("CL_API_TOKEN", password);
+    localStorage.setItem("CL_API_NAME", name);
   }
 
   public static logout() {
     localStorage.removeItem("CL_API_USERNAME");
     localStorage.removeItem("CL_API_TOKEN");
+    localStorage.removeItem("CL_API_NAME");
   }
 
   public static getLoginData() {
@@ -15,6 +17,10 @@ export class StorageUtils {
       password: localStorage.getItem("CL_API_TOKEN") || "",
     };
     return loginData;
+  }
+
+  public static getName() {
+    return localStorage.getItem("CL_API_NAME");
   }
 
   public static isLoggedIn() {

@@ -1,0 +1,160 @@
+.admin-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 35px;
+}
+
+@media only screen and (max-width: 600px) {
+  .admin-container {
+    padding-top: 20px;
+  }
+}
+
+.admin-title {
+  font-family: "Spartan-ExtraBold";
+  font-size: 38px;
+  align-self: center;
+}
+
+.admin-subtitle {
+  font-family: "Spartan-ExtraBold";
+  font-size: 15px;
+  margin-top: -10px;
+  align-self: center;
+  text-align: center;
+  line-height: 22px;
+}
+
+@media only screen and (max-width: 600px) {
+  .admin-subtitle {
+    width: 60%;
+  }
+}
+
+.admin-form-container {
+  margin-top: 50px;
+  width: 400px;
+  height: 225px;
+  padding: 25px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .admin-form-container {
+    width: 300px;
+    margin-top: 30px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .admin-form-container {
+    width: 250px;
+  }
+}
+
+.admin-form-element {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.admin-input {
+  margin-bottom: 20px;
+  font-family: "Spartan-ExtraBold";
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid #e3e3e3;
+  padding: 5px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.admin-button {
+  margin-top: 15px;
+  height: 45px;
+  width: 200px;
+  align-self: center;
+  font-family: "Spartan-ExtraBold";
+  font-size: 13px;
+  padding-top: 7px;
+  background: rgb(255, 128, 2);
+  background: linear-gradient(90deg, rgba(255, 128, 2, 1) 0%, rgba(255, 190, 0, 1) 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+}
+
+.admin-button:hover {
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.mes-container {
+  padding-top: 40px;
+  padding-bottom: 50px;
+  color: black;
+}
+
+.mes-message-container {
+  display: flex;
+  width: 700px;
+  height: 120px;
+  background-color: white;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #e3e3e3;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.action-button {
+  margin-top: 15px;
+  height: 45px;
+  width: 200px;
+  align-self: center;
+  font-family: "Spartan-ExtraBold";
+  font-size: 13px;
+  padding-top: 7px;
+  background-color: #2a2a2a;
+  border: none;
+  border-radius: 8px;
+  color: white;
+}
+
+.action-button:hover {
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.admin-buttons {
+  margin-top: 3px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-detail {
+  padding: 10px;
+  width: 450px;
+}
+
+.mes-body {
+  padding-top: 10px;
+  max-lines: 4;
+  word-wrap: break-word;
+}
+
+.mes-author {
+  font-weight: bold;
+}
+
+.updated-sec {
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}

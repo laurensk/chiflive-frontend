@@ -4,29 +4,52 @@ import { ApiError } from "../../api/ApiError.model";
 import { ApiService } from "../../api/ApiService";
 import { ApiSuccess } from "../../api/ApiSuccess.model";
 import { StorageUtils } from "../../utils/StorageUtils";
+import { LiveEvent } from "../../models/LiveEvent";
 
 interface StateType {
   author: string;
   body: string;
+  isLiveEvent: boolean;
 }
 
 export class Home extends React.Component<any, StateType> {
+  liveEventInterval: any;
+
   constructor(props: any) {
     super(props);
     this.state = {
       author: StorageUtils.getAuthorName(),
       body: "",
+      isLiveEvent: true,
     };
+  }
+
+  componentDidMount() {
+    this.updateLiveEvent();
+    this.liveEventInterval = setInterval(() => this.updateLiveEvent(), 10000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.liveEventInterval);
+  }
+
+  updateLiveEvent() {
+    ApiService.getLiveEvent((liveEvent: LiveEvent, error: ApiError) => {
+      if (!error) this.setState({ isLiveEvent: liveEvent.isLiveEvent });
+    });
   }
 
   sendMessage(event: any) {
     event.preventDefault();
-    console.log("tello");
-    ApiService.postMessage(this.state.author, this.state.body, (success: ApiSuccess, error: ApiError) => {
-      if (error) return alert("Error sending message. Please try again!");
-      this.setState({ body: "" });
-      alert("Message sent successfully!");
-    });
+    if (this.state.isLiveEvent) {
+      ApiService.postMessage(this.state.author, this.state.body, (success: ApiSuccess, error: ApiError) => {
+        if (error) return alert("Error sending message. Please try again!");
+        this.setState({ body: "" });
+        alert("Message sent successfully!");
+      });
+    } else {
+      alert("You can only send messages during a live event. Please come back later!");
+    }
   }
 
   authorChanged(event: any) {

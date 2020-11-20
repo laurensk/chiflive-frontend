@@ -1,8 +1,6 @@
 import Axios, { AxiosResponse } from "axios";
 import { ApiError } from "./ApiError.model";
 import { ApiSuccess } from "./ApiSuccess.model";
-import { User } from "../models/User";
-import { Message } from "../models/Message";
 import { StorageUtils } from "../utils/StorageUtils";
 
 export class ApiRequest {

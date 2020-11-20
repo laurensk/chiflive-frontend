@@ -6,20 +6,18 @@ import { Admin } from "./pages/admin/Admin";
 
 function App() {
   return (
-    <div className="container">
-      <Router>
-        <div>
-          <Switch>
-            <Route path="/admin">
-              <Admin />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/admin">
+            <Admin />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
