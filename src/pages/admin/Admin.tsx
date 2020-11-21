@@ -69,7 +69,7 @@ export class Admin extends React.Component<any, StateType> {
         this.setState({ isLoggedIn: false, password: "" });
         alert("Login failed. Please try again!");
       } else {
-        this.setState({ user: user, isLoggedIn: StorageUtils.isLoggedIn() });
+        this.setState({ user: user, isLoggedIn: StorageUtils.isLoggedIn(), username: "", password: "" });
       }
     });
   }
