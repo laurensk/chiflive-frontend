@@ -65,7 +65,7 @@ export class Home extends React.Component<any, StateType> {
     return (
       <div className="container">
         <h1 className="title">CHIFLIVE</h1>
-        <h2 className="subtitle">ADD YOUR COMMENT TO CHIFLIFE NOW!</h2>
+        <h2 className="subtitle">ADD YOUR COMMENT TO CHIFLIVE NOW!</h2>
         <div className="form-container">
           <form className="form-element" onSubmit={(event) => this.sendMessage(event)}>
             <input
