@@ -1,6 +1,6 @@
 {
   "name": "chiflive-frontend",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "homepage": "https://www.chiflive.com/",
   "dependencies": {
@@ -21,12 +21,12 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "echo 'www.chiflive.com' > ./build/CNAME && gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
