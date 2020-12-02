@@ -2,6 +2,7 @@
   "name": "chiflive-frontend",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://www.chiflive.com/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.1",
