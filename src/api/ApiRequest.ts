@@ -4,7 +4,7 @@ import { ApiSuccess } from "./ApiSuccess.model";
 import { StorageUtils } from "../utils/StorageUtils";
 
 export class ApiRequest {
-  static apiEndpoint: string = "https://chiflive.api.laurensk.at";
+  static apiEndpoint: string = "https://chiflive.prod.laurensk.at";
 
   static async responseHandler(response: AxiosResponse<any>, parseType: any, isArray: boolean, callback: Function) {
     const rawData = Object.values(response.data)[0];
