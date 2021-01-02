@@ -150,7 +150,7 @@ export class Admin extends React.Component<any, StateType> {
     );
   }
 
-  toogleRead(message: Message) {
+  toggleRead(message: Message) {
     ApiService.toggleReadStatus(message.id, (success: ApiSuccess, error: ApiError) => {
       if (!error) this.getMessages(true);
     });
@@ -170,7 +170,7 @@ export class Admin extends React.Component<any, StateType> {
           <div className="mes-body">{message.body}</div>
         </div>
         <div className="admin-buttons">
-          <button onClick={() => this.toogleRead(message)} className="action-button">
+          <button onClick={() => this.toggleRead(message)} className="action-button">
             {message.read ? "Mark as Unread" : "Mark as Read"}
           </button>
           <button onClick={() => this.deleteMessage(message)} className="action-button">
